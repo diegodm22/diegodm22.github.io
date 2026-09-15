@@ -1,15 +1,363 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diazz - Página Web</title>
+
+    <title>Diazz | Página Web</title>
+
+    <meta name="description" content="Página web personal de Diazz">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 
 <body>
 
-    <h1>Hola, soy Diazz</h1>
-    <p>Esta es mi página web.</p>
+    <!-- =========================
+         NAVEGACIÓN
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#inicio" class="logo">
+                DIAZZ<span>.</span>
+            </a>
+
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+
+    <main>
+
+
+        <!-- =========================
+             INICIO
+        ========================== -->
+
+        <section id="inicio" class="hero">
+
+            <div class="hero-background"></div>
+
+            <div class="hero-content">
+
+                <p class="hero-small">
+                    Hola, soy
+                </p>
+
+                <h1>
+                    DIAZZ<span>.</span>
+                </h1>
+
+                <h2>
+                    Bienvenido a mi página web
+                </h2>
+
+                <p class="hero-description">
+                    Este es mi espacio personal donde podrás conocerme,
+                    ver mis proyectos y descubrir lo que hago.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#proyectos" class="button primary">
+                        Ver proyectos
+                    </a>
+
+                    <a href="#contacto" class="button secondary">
+                        Contactarme
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SOBRE MÍ
+        ========================== -->
+
+        <section id="sobre-mi" class="section">
+
+            <div class="section-container">
+
+                <p class="section-label">
+                    SOBRE MÍ
+                </p>
+
+                <h2 class="section-title">
+                    ¿Quién soy?
+                </h2>
+
+
+                <div class="about-grid">
+
+
+                    <div class="about-text">
+
+                        <p>
+                            ¡Hola! Soy <strong>Diazz</strong>.
+                        </p>
+
+                        <p>
+                            Esta página es mi pequeño espacio en Internet.
+                            Aquí iré añadiendo información sobre mí,
+                            mis proyectos y las cosas que hago.
+                        </p>
+
+                        <p>
+                            Poco a poco iré actualizando esta web para
+                            convertirla en mi portfolio personal.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-card">
+
+                        <div class="about-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            Mi objetivo
+                        </h3>
+
+                        <p>
+                            Crear proyectos, aprender cosas nuevas
+                            y seguir mejorando.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PROYECTOS
+        ========================== -->
+
+        <section id="proyectos" class="section projects-section">
+
+            <div class="section-container">
+
+                <p class="section-label">
+                    PROYECTOS
+                </p>
+
+                <h2 class="section-title">
+                    Lo que estoy haciendo
+                </h2>
+
+                <p class="section-description">
+                    Aquí podrás encontrar algunos de mis proyectos.
+                </p>
+
+
+                <div class="projects-grid">
+
+
+                    <!-- PROYECTO 1 -->
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+                        <div class="project-content">
+
+                            <h3>
+                                Mi página web
+                            </h3>
+
+                            <p>
+                                Mi página web personal creada con
+                                HTML, CSS y GitHub Pages.
+                            </p>
+
+                            <a href="#inicio" class="project-link">
+                                Ver proyecto →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PROYECTO 2 -->
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <div class="project-content">
+
+                            <h3>
+                                Próximamente
+                            </h3>
+
+                            <p>
+                                Aquí podremos añadir otro proyecto
+                                cuando esté preparado.
+                            </p>
+
+                            <span class="project-link">
+                                Próximamente →
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PROYECTO 3 -->
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+                        <div class="project-content">
+
+                            <h3>
+                                Próximamente
+                            </h3>
+
+                            <p>
+                                Este espacio queda reservado para
+                                futuros proyectos.
+                            </p>
+
+                            <span class="project-link">
+                                Próximamente →
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTACTO
+        ========================== -->
+
+        <section id="contacto" class="section contact-section">
+
+            <div class="section-container contact-container">
+
+                <p class="section-label">
+                    CONTACTO
+                </p>
+
+                <h2 class="section-title">
+                    ¿Hablamos?
+                </h2>
+
+                <p class="section-description">
+                    Próximamente podrás encontrarme también en LinkedIn.
+                </p>
+
+
+                <div class="socials">
+
+                    <a href="#" class="social linkedin">
+
+                        <div class="social-left">
+
+                            <div class="linkedin-icon">
+                                in
+                            </div>
+
+                            <span>
+                                LinkedIn
+                            </span>
+
+                        </div>
+
+                        <span class="social-arrow">
+                            ↗
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <p class="coming-soon">
+                    Próximamente
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Diazz. Todos los derechos reservados.
+        </p>
+
+        <a href="#inicio">
+            Volver arriba ↑
+        </a>
+
+    </footer>
+
 
 </body>
+
 </html>
