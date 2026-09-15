@@ -14,7 +14,7 @@ html {
 
 body {
     font-family: "Inter", sans-serif;
-    background: #08080d;
+    background: #06070d;
     color: #ffffff;
     line-height: 1.6;
 }
@@ -26,17 +26,18 @@ body {
 
 :root {
 
-    --purple: #8b5cf6;
-    --purple-light: #a78bfa;
-    --purple-dark: #6d28d9;
+    --purple: #7c3cff;
+    --purple-light: #a66cff;
+    --purple-bright: #8f4dff;
 
-    --background: #08080d;
-    --background-light: #101018;
+    --background: #06070d;
+    --background-light: #0c0e17;
+    --background-section: #080a11;
 
     --text: #ffffff;
-    --text-muted: #a1a1aa;
+    --text-muted: #a5a8b5;
 
-    --border: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.10);
 }
 
 
@@ -53,9 +54,11 @@ body {
 
     width: 100%;
 
-    background: rgba(8, 8, 13, 0.75);
+    height: 74px;
 
-    backdrop-filter: blur(15px);
+    background: rgba(5, 6, 12, 0.72);
+
+    backdrop-filter: blur(18px);
 
     border-bottom: 1px solid var(--border);
 
@@ -65,9 +68,9 @@ body {
 
 .nav-container {
 
-    max-width: 1100px;
+    max-width: 1150px;
 
-    height: 75px;
+    height: 100%;
 
     margin: auto;
 
@@ -81,41 +84,59 @@ body {
 }
 
 
-/* LOGO */
+/* =========================================
+   LOGO DE LA NAVBAR
+========================================= */
 
 .logo {
 
-    color: white;
+    display: flex;
+
+    align-items: center;
+
+    height: 60px;
 
     text-decoration: none;
-
-    font-size: 22px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
 }
 
 
-.logo span {
+.logo img {
 
-    color: var(--purple);
+    height: 50px;
+
+    width: auto;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition: transform 0.3s ease;
 }
 
 
-/* MENÚ */
+.logo:hover img {
+
+    transform: scale(1.04);
+}
+
+
+/* =========================================
+   MENÚ
+========================================= */
 
 nav {
 
     display: flex;
 
-    gap: 30px;
+    align-items: center;
+
+    gap: 38px;
 }
 
 
 nav a {
 
-    color: var(--text-muted);
+    color: #d1d2d8;
 
     text-decoration: none;
 
@@ -123,13 +144,17 @@ nav a {
 
     font-weight: 500;
 
-    transition: 0.3s;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 
 nav a:hover {
 
     color: var(--purple-light);
+
+    transform: translateY(-1px);
 }
 
 
@@ -141,6 +166,10 @@ nav a:hover {
 
     min-height: 100vh;
 
+    position: relative;
+
+    overflow: hidden;
+
     display: flex;
 
     align-items: center;
@@ -149,141 +178,183 @@ nav a:hover {
 
     text-align: center;
 
-    position: relative;
+    padding: 120px 20px 130px;
 
-    overflow: hidden;
+    background:
 
-    padding: 120px 20px 80px;
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(91, 35, 190, 0.18),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #070812 0%,
+            #080815 55%,
+            #080a12 100%
+        );
 }
 
 
-/* RESPLANDOR MORADO */
+/* =========================================
+   ESTRELLAS
+========================================= */
 
-.hero::before {
+.stars {
 
-    content: "";
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.75;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(166, 108, 255, 0.8) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(124, 60, 255, 0.65) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.45) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        220px 180px,
+        310px 260px,
+        390px 330px;
+
+    background-position:
+        20px 40px,
+        100px 100px,
+        180px 30px;
+}
+
+
+/* =========================================
+   RESPLANDOR CENTRAL
+========================================= */
+
+.hero-glow {
 
     position: absolute;
 
     width: 500px;
+
     height: 500px;
 
-    background: var(--purple);
+    left: 50%;
+
+    top: 25%;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(113, 45, 255, 0.22);
 
     border-radius: 50%;
 
-    filter: blur(180px);
-
-    opacity: 0.15;
-
-    top: 5%;
-    left: 50%;
-
-    transform: translateX(-50%);
+    filter: blur(150px);
 
     pointer-events: none;
 }
 
 
-/* ARCO INFERIOR */
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 700px;
-    height: 200px;
-
-    border-top: 2px solid rgba(139, 92, 246, 0.5);
-
-    border-radius: 50%;
-
-    bottom: -80px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    box-shadow:
-        0 -10px 50px rgba(139, 92, 246, 0.2);
-
-    pointer-events: none;
-}
-
+/* =========================================
+   CONTENIDO HERO
+========================================= */
 
 .hero-content {
 
     position: relative;
 
-    z-index: 2;
+    z-index: 5;
 
-    max-width: 850px;
+    max-width: 900px;
 }
 
-
-/* TEXTO SUPERIOR */
 
 .hero-small {
 
     color: var(--purple-light);
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 700;
 
-    letter-spacing: 5px;
+    letter-spacing: 6px;
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 
-/* NOMBRE */
+/* =========================================
+   LOGO GRANDE
+========================================= */
+
+.hero-logo {
+
+    width: min(340px, 70vw);
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto 25px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 15px 35px rgba(0, 0, 0, 0.35)
+        );
+}
+
+
+/* =========================================
+   TÍTULO HERO
+========================================= */
 
 .hero h1 {
 
-    font-size: clamp(60px, 10vw, 140px);
+    font-size: clamp(30px, 4vw, 46px);
 
-    line-height: 0.9;
+    line-height: 1.15;
 
-    font-weight: 800;
-
-    letter-spacing: -6px;
-
-    margin-bottom: 30px;
-}
-
-
-.hero h1 span {
-
-    color: var(--purple);
-}
-
-
-/* TÍTULO */
-
-.hero h2 {
-
-    font-size: clamp(24px, 4vw, 40px);
-
-    line-height: 1.2;
+    font-weight: 700;
 
     margin-bottom: 20px;
+
+    letter-spacing: -1px;
 }
 
 
-/* DESCRIPCIÓN */
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
 
 .hero-description {
 
-    max-width: 620px;
+    max-width: 650px;
 
     margin: auto;
 
     color: var(--text-muted);
 
     font-size: 17px;
+
+    line-height: 1.8;
 }
 
 
@@ -297,7 +368,9 @@ nav a:hover {
 
     justify-content: center;
 
-    gap: 15px;
+    align-items: center;
+
+    gap: 16px;
 
     margin-top: 35px;
 }
@@ -305,21 +378,27 @@ nav a:hover {
 
 .button {
 
+    min-width: 155px;
+
     padding: 14px 25px;
 
     border-radius: 8px;
 
     text-decoration: none;
 
-    font-weight: 600;
-
     font-size: 14px;
 
-    transition: 0.3s;
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
-/* BOTÓN PRINCIPAL */
+/* BOTÓN MORADO */
 
 .button.primary {
 
@@ -328,38 +407,70 @@ nav a:hover {
     color: white;
 
     box-shadow:
-        0 0 30px rgba(139, 92, 246, 0.25);
+        0 8px 30px rgba(124, 60, 255, 0.25);
 }
 
 
 .button.primary:hover {
 
-    background: var(--purple-light);
+    background: var(--purple-bright);
 
     transform: translateY(-3px);
 
     box-shadow:
-        0 0 40px rgba(139, 92, 246, 0.4);
+        0 12px 40px rgba(124, 60, 255, 0.40);
 }
 
 
-/* BOTÓN SECUNDARIO */
+/* BOTÓN TRANSPARENTE */
 
 .button.secondary {
 
-    border: 1px solid var(--border);
-
     color: white;
 
-    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(166, 108, 255, 0.55);
+
+    background: rgba(10, 10, 20, 0.45);
 }
 
 
 .button.secondary:hover {
 
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(124, 60, 255, 0.10);
+
+    border-color: var(--purple-light);
 
     transform: translateY(-3px);
+}
+
+
+/* =========================================
+   ARCO DEL HERO
+========================================= */
+
+.hero-arc {
+
+    position: absolute;
+
+    width: 1150px;
+
+    height: 330px;
+
+    left: 50%;
+
+    bottom: -270px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    border-top: 2px solid rgba(145, 76, 255, 0.75);
+
+    box-shadow:
+        0 -10px 45px rgba(124, 60, 255, 0.25),
+        0 -2px 15px rgba(166, 108, 255, 0.25);
+
+    z-index: 3;
 }
 
 
@@ -381,15 +492,21 @@ nav a:hover {
 }
 
 
+.section-heading {
+
+    margin-bottom: 50px;
+}
+
+
 .section-label {
 
     color: var(--purple-light);
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 700;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 
     margin-bottom: 12px;
 }
@@ -397,11 +514,13 @@ nav a:hover {
 
 .section-title {
 
-    font-size: clamp(35px, 5vw, 55px);
+    font-size: clamp(38px, 5vw, 56px);
 
     line-height: 1.1;
 
-    margin-bottom: 20px;
+    font-weight: 700;
+
+    letter-spacing: -1.5px;
 }
 
 
@@ -409,9 +528,9 @@ nav a:hover {
 
     color: var(--text-muted);
 
-    max-width: 600px;
+    font-size: 16px;
 
-    margin-bottom: 50px;
+    margin-top: 15px;
 }
 
 
@@ -419,15 +538,27 @@ nav a:hover {
    SOBRE MÍ
 ========================================= */
 
+.about-section {
+
+    background:
+
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(93, 37, 180, 0.08),
+            transparent 30%
+        ),
+
+        var(--background-section);
+}
+
+
 .about-grid {
 
     display: grid;
 
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.35fr 1fr;
 
-    gap: 60px;
-
-    margin-top: 50px;
+    gap: 80px;
 
     align-items: center;
 }
@@ -438,6 +569,8 @@ nav a:hover {
     color: var(--text-muted);
 
     font-size: 17px;
+
+    line-height: 1.9;
 }
 
 
@@ -453,22 +586,33 @@ nav a:hover {
 }
 
 
-/* TARJETA OBJETIVO */
+/* =========================================
+   TARJETA OBJETIVO
+========================================= */
 
 .about-card {
 
-    padding: 40px;
+    padding: 45px;
+
+    min-height: 240px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
 
     background:
+
         linear-gradient(
             145deg,
-            rgba(139, 92, 246, 0.08),
+            rgba(91, 40, 190, 0.12),
             rgba(255, 255, 255, 0.02)
         );
 
-    border: 1px solid var(--border);
+    border: 1px solid rgba(139, 79, 255, 0.35);
 
-    border-radius: 15px;
+    border-radius: 16px;
 
     transition: 0.3s;
 }
@@ -478,19 +622,18 @@ nav a:hover {
 
     transform: translateY(-5px);
 
-    border-color:
-        rgba(139, 92, 246, 0.5);
+    border-color: rgba(166, 108, 255, 0.75);
 
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.25);
+        0 20px 60px rgba(60, 20, 130, 0.18);
 }
 
 
 .about-icon {
 
-    font-size: 35px;
+    color: var(--purple-light);
 
-    color: var(--purple);
+    font-size: 35px;
 
     margin-bottom: 20px;
 }
@@ -498,7 +641,7 @@ nav a:hover {
 
 .about-card h3 {
 
-    font-size: 22px;
+    font-size: 23px;
 
     margin-bottom: 10px;
 }
@@ -516,7 +659,11 @@ nav a:hover {
 
 .projects-section {
 
-    background: #0b0b12;
+    background: #070910;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 
@@ -527,46 +674,48 @@ nav a:hover {
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 20px;
+    gap: 22px;
 }
 
 
-/* TARJETA DE PROYECTO */
-
 .project-card {
 
-    min-height: 300px;
-
-    padding: 30px;
-
-    border: 1px solid var(--border);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(139, 92, 246, 0.05),
-            rgba(255, 255, 255, 0.015)
-        );
-
-    border-radius: 15px;
+    min-height: 320px;
 
     position: relative;
 
     overflow: hidden;
 
-    transition: 0.3s;
+    padding: 30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(55, 31, 110, 0.13),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    transition:
+        transform 0.3s ease,
+        border 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
 .project-card:hover {
 
-    transform: translateY(-7px);
+    transform: translateY(-8px);
 
     border-color:
-        rgba(139, 92, 246, 0.5);
+        rgba(139, 79, 255, 0.55);
 
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.3);
+        0 25px 60px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -574,18 +723,19 @@ nav a:hover {
 
 .project-number {
 
-    color:
-        rgba(139, 92, 246, 0.25);
-
-    font-size: 60px;
-
-    font-weight: 800;
-
     position: absolute;
 
     top: 15px;
 
     right: 20px;
+
+    font-size: 65px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    color: rgba(124, 60, 255, 0.25);
 }
 
 
@@ -617,6 +767,8 @@ nav a:hover {
 
     font-size: 14px;
 
+    line-height: 1.7;
+
     margin-bottom: 20px;
 }
 
@@ -646,6 +798,16 @@ nav a:hover {
 .contact-section {
 
     text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(101, 44, 205, 0.10),
+            transparent 35%
+        ),
+
+        var(--background);
 }
 
 
@@ -659,21 +821,25 @@ nav a:hover {
 }
 
 
+.contact-section .section-label {
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   LINKEDIN
+========================================= */
+
 .socials {
 
     width: 100%;
 
-    max-width: 600px;
-
     display: flex;
 
     justify-content: center;
-
-    margin-top: 25px;
 }
 
-
-/* LINKEDIN */
 
 .social {
 
@@ -683,26 +849,27 @@ nav a:hover {
 
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
 
+    justify-content: space-between;
+
     padding: 18px 22px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 10px;
 
     color: white;
 
     text-decoration: none;
 
     background:
+
         linear-gradient(
             145deg,
-            rgba(139, 92, 246, 0.08),
+            rgba(80, 45, 160, 0.12),
             rgba(255, 255, 255, 0.02)
         );
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
 
     transition: 0.3s;
 }
@@ -710,12 +877,13 @@ nav a:hover {
 
 .social:hover {
 
-    border-color: var(--purple);
+    transform: translateY(-4px);
 
-    transform: translateY(-3px);
+    border-color:
+        rgba(139, 79, 255, 0.65);
 
     box-shadow:
-        0 10px 30px rgba(139, 92, 246, 0.12);
+        0 15px 40px rgba(70, 30, 150, 0.18);
 }
 
 
@@ -731,13 +899,13 @@ nav a:hover {
 }
 
 
-/* ICONO LINKEDIN */
+/* ICONO */
 
 .linkedin-icon {
 
-    width: 35px;
+    width: 36px;
 
-    height: 35px;
+    height: 36px;
 
     display: flex;
 
@@ -745,11 +913,11 @@ nav a:hover {
 
     justify-content: center;
 
+    border-radius: 6px;
+
     background: #0a66c2;
 
     color: white;
-
-    border-radius: 5px;
 
     font-size: 20px;
 
@@ -764,8 +932,6 @@ nav a:hover {
     font-size: 22px;
 }
 
-
-/* PRÓXIMAMENTE */
 
 .coming-soon {
 
@@ -783,8 +949,6 @@ nav a:hover {
 
 footer {
 
-    border-top: 1px solid var(--border);
-
     max-width: 1100px;
 
     margin: auto;
@@ -793,7 +957,11 @@ footer {
 
     display: flex;
 
+    align-items: center;
+
     justify-content: space-between;
+
+    border-top: 1px solid var(--border);
 
     color: var(--text-muted);
 
@@ -818,25 +986,32 @@ footer a:hover {
 
 
 /* =========================================
-   RESPONSIVE - MÓVIL
+   RESPONSIVE
 ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 
+    .navbar {
 
-    /* NAV */
+        height: 68px;
+    }
+
 
     .nav-container {
-
-        height: 65px;
 
         padding: 0 15px;
     }
 
 
+    .logo img {
+
+        height: 45px;
+    }
+
+
     nav {
 
-        gap: 12px;
+        gap: 13px;
     }
 
 
@@ -846,27 +1021,29 @@ footer a:hover {
     }
 
 
-    /* HERO */
+    .hero {
 
-    .hero h1 {
-
-        letter-spacing: -3px;
+        padding-top: 100px;
     }
 
 
     .hero-small {
 
-        font-size: 10px;
+        font-size: 9px;
 
         letter-spacing: 3px;
+    }
+
+
+    .hero-logo {
+
+        width: min(280px, 75vw);
     }
 
 
     .hero-buttons {
 
         flex-direction: column;
-
-        align-items: center;
     }
 
 
@@ -878,17 +1055,13 @@ footer a:hover {
     }
 
 
-    /* SOBRE MÍ */
-
     .about-grid {
 
         grid-template-columns: 1fr;
 
-        gap: 30px;
+        gap: 35px;
     }
 
-
-    /* PROYECTOS */
 
     .projects-grid {
 
@@ -896,15 +1069,53 @@ footer a:hover {
     }
 
 
-    /* FOOTER */
+    .project-card {
+
+        min-height: 290px;
+    }
+
 
     footer {
 
         flex-direction: column;
 
-        gap: 10px;
+        gap: 12px;
 
         text-align: center;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    nav {
+
+        gap: 8px;
+    }
+
+
+    nav a {
+
+        font-size: 9px;
+    }
+
+
+    .logo img {
+
+        height: 40px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 28px;
+    }
+
+
+    .section {
+
+        padding: 90px 20px;
     }
 
 }
