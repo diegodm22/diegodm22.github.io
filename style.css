@@ -93,7 +93,7 @@ body {
 
     font-weight: 800;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 
@@ -157,7 +157,7 @@ nav a:hover {
 }
 
 
-/* FONDO MORADO */
+/* RESPLANDOR MORADO */
 
 .hero::before {
 
@@ -185,7 +185,7 @@ nav a:hover {
 }
 
 
-/* SEGUNDO RESPLANDOR */
+/* ARCO INFERIOR */
 
 .hero::after {
 
@@ -219,21 +219,23 @@ nav a:hover {
 
     z-index: 2;
 
-    max-width: 800px;
+    max-width: 850px;
 }
 
 
-/* TEXTO PEQUEÑO */
+/* TEXTO SUPERIOR */
 
 .hero-small {
 
     color: var(--purple-light);
 
-    font-size: 17px;
+    font-size: 13px;
 
-    font-weight: 600;
+    font-weight: 700;
 
-    margin-bottom: 15px;
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
 }
 
 
@@ -241,7 +243,7 @@ nav a:hover {
 
 .hero h1 {
 
-    font-size: clamp(70px, 12vw, 150px);
+    font-size: clamp(60px, 10vw, 140px);
 
     line-height: 0.9;
 
@@ -259,7 +261,7 @@ nav a:hover {
 }
 
 
-/* SUBTÍTULO */
+/* TÍTULO */
 
 .hero h2 {
 
@@ -275,7 +277,7 @@ nav a:hover {
 
 .hero-description {
 
-    max-width: 600px;
+    max-width: 620px;
 
     margin: auto;
 
@@ -451,7 +453,7 @@ nav a:hover {
 }
 
 
-/* TARJETA */
+/* TARJETA OBJETIVO */
 
 .about-card {
 
@@ -476,7 +478,8 @@ nav a:hover {
 
     transform: translateY(-5px);
 
-    border-color: rgba(139, 92, 246, 0.5);
+    border-color:
+        rgba(139, 92, 246, 0.5);
 
     box-shadow:
         0 20px 50px rgba(0, 0, 0, 0.25);
@@ -528,7 +531,7 @@ nav a:hover {
 }
 
 
-/* TARJETA */
+/* TARJETA DE PROYECTO */
 
 .project-card {
 
@@ -656,14 +659,6 @@ nav a:hover {
 }
 
 
-.contact-container .section-description {
-
-    margin-bottom: 40px;
-}
-
-
-/* REDES */
-
 .socials {
 
     width: 100%;
@@ -673,6 +668,8 @@ nav a:hover {
     display: flex;
 
     justify-content: center;
+
+    margin-top: 25px;
 }
 
 
@@ -821,7 +818,7 @@ footer a:hover {
 
 
 /* =========================================
-   MÓVILES
+   RESPONSIVE - MÓVIL
 ========================================= */
 
 @media (max-width: 768px) {
@@ -854,6 +851,14 @@ footer a:hover {
     .hero h1 {
 
         letter-spacing: -3px;
+    }
+
+
+    .hero-small {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
     }
 
 
