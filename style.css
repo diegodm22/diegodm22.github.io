@@ -1514,3 +1514,336 @@ footer a:hover {
         font-size: 10px;
     }
 }
+
+/* =========================================
+   SELECTOR DE UNIDADES
+   ========================================= */
+
+.unit-selector {
+    margin-top: 70px;
+}
+
+.unit-selector-header {
+    margin-bottom: 35px;
+}
+
+.unit-selector-header h2 {
+    margin: 8px 0 10px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.unit-selector-header p:not(.section-label) {
+    color: var(--text-muted);
+}
+
+
+/* LISTA DE UNIDADES */
+
+.unit-list {
+    display: grid;
+    gap: 14px;
+}
+
+
+/* TARJETA DE UNIDAD */
+
+.unit-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    padding: 22px 26px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.unit-card:hover {
+    transform: translateX(6px);
+
+    border-color: rgba(150, 80, 255, 0.55);
+
+    background: rgba(130, 70, 255, 0.06);
+}
+
+
+/* NÚMERO */
+
+.unit-number {
+    min-width: 48px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #a970ff;
+}
+
+
+/* INFORMACIÓN */
+
+.unit-information {
+    flex: 1;
+}
+
+.unit-information h3 {
+    margin: 0 0 5px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.unit-information p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: var(--text-muted);
+}
+
+
+/* FLECHA */
+
+.unit-arrow {
+    font-size: 22px;
+
+    color: #a970ff;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.unit-card:hover .unit-arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   CONTENIDO DE UNIDAD
+   ========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+.unit-content {
+    margin-top: 55px;
+}
+
+
+/* =========================================
+   NAVEGACIÓN
+   ========================================= */
+
+.unit-navigation {
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 50px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.unit-nav-button {
+    padding: 12px 18px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: var(--text-main);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.unit-nav-button:hover:not(:disabled) {
+    background:
+        rgba(130, 70, 255, 0.08);
+
+    border-color:
+        rgba(150, 80, 255, 0.45);
+}
+
+.unit-nav-button.center {
+    color: #b57cff;
+}
+
+.unit-nav-button:disabled {
+    opacity: 0.3;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   CABECERA UNIDAD
+   ========================================= */
+
+.selected-unit-header {
+    margin-bottom: 35px;
+}
+
+.selected-unit-header h2 {
+    margin: 8px 0 0;
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   LISTA DE TRABAJOS
+   ========================================= */
+
+#works-container {
+    display: grid;
+
+    gap: 12px;
+}
+
+.work-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px 20px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.work-card:hover {
+    transform: translateX(5px);
+
+    border-color:
+        rgba(150, 80, 255, 0.45);
+
+    background:
+        rgba(130, 70, 255, 0.05);
+}
+
+.work-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        rgba(150, 80, 255, 0.12);
+
+    color: #b57cff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.work-information {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.work-information h4 {
+    margin: 0 0 5px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.work-information p {
+    margin: 0;
+
+    font-size: 12px;
+
+    color: var(--text-muted);
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+.work-arrow {
+    font-size: 20px;
+
+    color: #a970ff;
+}
+
+
+/* =========================================
+   MENSAJES
+   ========================================= */
+
+.loading,
+.empty-topic {
+    padding: 30px;
+
+    text-align: center;
+
+    color: var(--text-muted);
+}

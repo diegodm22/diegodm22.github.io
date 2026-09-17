@@ -18,46 +18,57 @@ const modules = {
         description: "Implantación de Sistemas Operativos",
 
         topics: [
+
             {
                 folder: "ud01-software-base",
                 name: "UD01 - Software base"
             },
+
             {
                 folder: "ud02-administracion-software-base",
                 name: "UD02 - Administración de software base"
             },
+
             {
                 folder: "ud03-aseguramiento-informacion",
                 name: "UD03 - Aseguramiento de la información"
             },
+
             {
                 folder: "ud04-implantacion-dominios",
                 name: "UD04 - Implantación de dominios"
             },
+
             {
                 folder: "ud05a-administracion-dominios",
                 name: "UD05A - Administración de dominios"
             },
+
             {
                 folder: "ud05b-gestion-acceso-dominio",
                 name: "UD05B - Gestión de acceso al dominio"
             },
+
             {
                 folder: "ud06-supervision-rendimiento",
                 name: "UD06 - Supervisión del rendimiento del sistema"
             },
+
             {
                 folder: "ud07-auditoria",
                 name: "UD07 - Auditoría"
             },
+
             {
                 folder: "ud08-resolucion-incidencias",
                 name: "UD08 - Resolución Incidencias y servicio técnico"
             },
+
             {
                 folder: "trabajos-taller",
                 name: "Trabajos taller"
             }
+
         ]
     }
 
@@ -65,14 +76,53 @@ const modules = {
 
 
 // =========================================
-// OBTENER MÓDULO DE LA URL
+// OBTENER PARÁMETROS DE LA URL
 // =========================================
 
-const params = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(
+    window.location.search
+);
 
-const moduleId = params.get("modulo") || "iso";
+const moduleId =
+    params.get("modulo") || "iso";
 
-const currentModule = modules[moduleId];
+const selectedUnit =
+    params.get("unidad");
+
+const currentModule =
+    modules[moduleId];
+
+
+// =========================================
+// ELEMENTOS DE LA PÁGINA
+// =========================================
+
+const unitSelector =
+    document.getElementById("unit-selector");
+
+const unitList =
+    document.getElementById("unit-list");
+
+const unitContent =
+    document.getElementById("unit-content");
+
+const worksContainer =
+    document.getElementById("works-container");
+
+const selectedUnitTitle =
+    document.getElementById("selected-unit-title");
+
+const selectedUnitLabel =
+    document.getElementById("selected-unit-label");
+
+const previousButton =
+    document.getElementById("previous-unit");
+
+const nextButton =
+    document.getElementById("next-unit");
+
+const backButton =
+    document.getElementById("back-to-units");
 
 
 // =========================================
@@ -81,22 +131,27 @@ const currentModule = modules[moduleId];
 
 if (currentModule) {
 
-    const title = document.getElementById("module-title");
-    const description = document.getElementById("module-description");
+    const title =
+        document.getElementById("module-title");
+
+    const description =
+        document.getElementById("module-description");
 
     if (title) {
-        title.textContent = currentModule.name;
+        title.textContent =
+            currentModule.name;
     }
 
     if (description) {
-        description.textContent = currentModule.description;
+        description.textContent =
+            currentModule.description;
     }
 
 }
 
 
 // =========================================
-// CONVERTIR NOMBRE DE ARCHIVO
+// FORMATEAR NOMBRE DE ARCHIVO
 // =========================================
 
 function formatFileName(filename) {
@@ -110,16 +165,23 @@ function formatFileName(filename) {
     return name
         .split(" ")
         .map(word => {
-            if (word.length === 0) return word;
 
-            return word.charAt(0).toUpperCase() + word.slice(1);
+            if (word.length === 0) {
+                return word;
+            }
+
+            return (
+                word.charAt(0).toUpperCase() +
+                word.slice(1)
+            );
+
         })
         .join(" ");
 }
 
 
 // =========================================
-// OBTENER ARCHIVOS DE UNA CARPETA
+// OBTENER ARCHIVOS DE UNA UNIDAD
 // =========================================
 
 async function getFiles(folder) {
@@ -129,22 +191,29 @@ async function getFiles(folder) {
 
     try {
 
-        const response = await fetch(url);
+        const response =
+            await fetch(url);
 
         if (!response.ok) {
             return [];
         }
 
-        const files = await response.json();
+        const files =
+            await response.json();
 
         return files.filter(file =>
             file.type === "file" &&
-            file.name.toLowerCase().endsWith(".pdf")
+            file.name
+                .toLowerCase()
+                .endsWith(".pdf")
         );
 
     } catch (error) {
 
-        console.error("Error obteniendo archivos:", error);
+        console.error(
+            "Error obteniendo archivos:",
+            error
+        );
 
         return [];
     }
@@ -152,42 +221,61 @@ async function getFiles(folder) {
 
 
 // =========================================
-// CREAR TARJETA DE UN TRABAJO
+// CREAR TARJETA DE PDF
 // =========================================
 
 function createFileCard(file) {
 
-    const card = document.createElement("a");
+    const card =
+        document.createElement("a");
 
-    card.className = "work-card";
+    card.className =
+        "work-card";
 
-    card.href = file.html_url;
+    /*
+     * download_url abre directamente
+     * el archivo PDF.
+     */
 
-    card.target = "_blank";
+    card.href =
+        file.download_url || file.html_url;
 
-    card.rel = "noopener noreferrer";
+    card.target =
+        "_blank";
 
-
-    const icon = document.createElement("div");
-
-    icon.className = "work-icon";
-
-    icon.textContent = "PDF";
-
-
-    const information = document.createElement("div");
-
-    information.className = "work-information";
+    card.rel =
+        "noopener noreferrer";
 
 
-    const title = document.createElement("h4");
+    const icon =
+        document.createElement("div");
 
-    title.textContent = formatFileName(file.name);
+    icon.className =
+        "work-icon";
+
+    icon.textContent =
+        "PDF";
 
 
-    const filename = document.createElement("p");
+    const information =
+        document.createElement("div");
 
-    filename.textContent = file.name;
+    information.className =
+        "work-information";
+
+
+    const title =
+        document.createElement("h4");
+
+    title.textContent =
+        formatFileName(file.name);
+
+
+    const filename =
+        document.createElement("p");
+
+    filename.textContent =
+        file.name;
 
 
     information.appendChild(title);
@@ -195,11 +283,14 @@ function createFileCard(file) {
     information.appendChild(filename);
 
 
-    const arrow = document.createElement("span");
+    const arrow =
+        document.createElement("span");
 
-    arrow.className = "work-arrow";
+    arrow.className =
+        "work-arrow";
 
-    arrow.textContent = "↗";
+    arrow.textContent =
+        "↗";
 
 
     card.appendChild(icon);
@@ -214,97 +305,335 @@ function createFileCard(file) {
 
 
 // =========================================
-// CARGAR TODOS LOS TEMAS
+// CREAR LISTA DE UNIDADES
 // =========================================
 
-async function loadTopics() {
+function renderUnitSelector() {
 
-    const container = document.getElementById("topics-container");
+    if (!unitList || !currentModule) {
+        return;
+    }
 
-    if (!container || !currentModule) {
+    unitList.innerHTML = "";
+
+
+    currentModule.topics.forEach(
+        (topic, index) => {
+
+            const card =
+                document.createElement("button");
+
+            card.className =
+                "unit-card";
+
+            card.type =
+                "button";
+
+
+            const number =
+                document.createElement("span");
+
+            number.className =
+                "unit-number";
+
+            number.textContent =
+                String(index + 1)
+                    .padStart(2, "0");
+
+
+            const information =
+                document.createElement("div");
+
+            information.className =
+                "unit-information";
+
+
+            const title =
+                document.createElement("h3");
+
+            title.textContent =
+                topic.name;
+
+
+            const description =
+                document.createElement("p");
+
+            description.textContent =
+                "Ver trabajos de esta unidad";
+
+
+            information.appendChild(title);
+
+            information.appendChild(description);
+
+
+            const arrow =
+                document.createElement("span");
+
+            arrow.className =
+                "unit-arrow";
+
+            arrow.textContent =
+                "→";
+
+
+            card.appendChild(number);
+
+            card.appendChild(information);
+
+            card.appendChild(arrow);
+
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    openUnit(topic.folder);
+
+                }
+            );
+
+
+            unitList.appendChild(card);
+
+        }
+    );
+}
+
+
+// =========================================
+// ABRIR UNA UNIDAD
+// =========================================
+
+async function openUnit(folder) {
+
+    if (!currentModule) {
         return;
     }
 
 
-    container.innerHTML = "";
+    const index =
+        currentModule.topics.findIndex(
+            topic => topic.folder === folder
+        );
 
 
-    for (const topic of currentModule.topics) {
-
-        const files = await getFiles(topic.folder);
-
-
-        const topicSection = document.createElement("section");
-
-        topicSection.className = "topic-section";
+    if (index === -1) {
+        return;
+    }
 
 
-        const header = document.createElement("div");
-
-        header.className = "topic-header";
-
-
-        const title = document.createElement("h3");
-
-        title.textContent = topic.name;
+    const topic =
+        currentModule.topics[index];
 
 
-        const count = document.createElement("span");
+    // Actualizar URL
 
-        count.className = "topic-count";
+    const newUrl =
+        `asignatura.html?modulo=${moduleId}&unidad=${encodeURIComponent(folder)}`;
 
-        count.textContent =
-            `${files.length} ${files.length === 1 ? "trabajo" : "trabajos"}`;
-
-
-        header.appendChild(title);
-
-        header.appendChild(count);
-
-
-        const works = document.createElement("div");
-
-        works.className = "works-list";
+    window.history.pushState(
+        {},
+        "",
+        newUrl
+    );
 
 
-        if (files.length === 0) {
+    // Ocultar selector
 
-            const empty = document.createElement("p");
+    unitSelector.classList.add(
+        "hidden"
+    );
 
-            empty.className = "empty-topic";
 
-            empty.textContent =
-                "Todavía no hay trabajos en este tema.";
+    // Mostrar contenido
 
-            works.appendChild(empty);
+    unitContent.classList.remove(
+        "hidden"
+    );
 
-        } else {
 
-            files.forEach(file => {
+    // Actualizar título
 
-                works.appendChild(
-                    createFileCard(file)
+    selectedUnitTitle.textContent =
+        topic.name;
+
+
+    selectedUnitLabel.textContent =
+        `UNIDAD ${String(index + 1).padStart(2, "0")}`;
+
+
+    // Botón anterior
+
+    if (index === 0) {
+
+        previousButton.disabled = true;
+
+    } else {
+
+        previousButton.disabled = false;
+
+        previousButton.onclick =
+            () => {
+
+                openUnit(
+                    currentModule
+                        .topics[index - 1]
+                        .folder
                 );
 
-            });
-
-        }
-
-
-        topicSection.appendChild(header);
-
-        topicSection.appendChild(works);
-
-
-        container.appendChild(topicSection);
+            };
 
     }
+
+
+    // Botón siguiente
+
+    if (
+        index ===
+        currentModule.topics.length - 1
+    ) {
+
+        nextButton.disabled = true;
+
+    } else {
+
+        nextButton.disabled = false;
+
+        nextButton.onclick =
+            () => {
+
+                openUnit(
+                    currentModule
+                        .topics[index + 1]
+                        .folder
+                );
+
+            };
+
+    }
+
+
+    // Limpiar trabajos
+
+    worksContainer.innerHTML =
+        `<div class="loading">
+            Cargando trabajos...
+        </div>`;
+
+
+    // Obtener PDFs
+
+    const files =
+        await getFiles(folder);
+
+
+    worksContainer.innerHTML =
+        "";
+
+
+    if (files.length === 0) {
+
+        const empty =
+            document.createElement("p");
+
+        empty.className =
+            "empty-topic";
+
+        empty.textContent =
+            "Todavía no hay trabajos en esta unidad.";
+
+        worksContainer.appendChild(
+            empty
+        );
+
+        return;
+    }
+
+
+    // Crear trabajos
+
+    files.forEach(file => {
+
+        worksContainer.appendChild(
+            createFileCard(file)
+        );
+
+    });
 
 }
 
 
 // =========================================
-// INICIAR
+// VOLVER AL SELECTOR
 // =========================================
 
-loadTopics();
+function showUnitSelector() {
+
+    unitContent.classList.add(
+        "hidden"
+    );
+
+    unitSelector.classList.remove(
+        "hidden"
+    );
+
+
+    const newUrl =
+        `asignatura.html?modulo=${moduleId}`;
+
+    window.history.pushState(
+        {},
+        "",
+        newUrl
+    );
+
+}
+
+
+// =========================================
+// BOTÓN "TODAS LAS UNIDADES"
+// =========================================
+
+if (backButton) {
+
+    backButton.addEventListener(
+        "click",
+        showUnitSelector
+    );
+
+}
+
+
+// =========================================
+// INICIO
+// =========================================
+
+if (currentModule) {
+
+    renderUnitSelector();
+
+
+    /*
+     * Si la URL tiene una unidad,
+     * abrirla directamente.
+     */
+
+    if (selectedUnit) {
+
+        const exists =
+            currentModule.topics.some(
+                topic =>
+                    topic.folder === selectedUnit
+            );
+
+
+        if (exists) {
+
+            openUnit(selectedUnit);
+
+        }
+
+    }
+
+}

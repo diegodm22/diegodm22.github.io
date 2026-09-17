@@ -25,12 +25,7 @@
 
 <body>
 
-    <!-- =========================
-         NAVEGACIÓN
-    ========================== -->
-
     <header class="navbar">
-
         <div class="nav-container">
 
             <a href="index.html" class="logo">
@@ -45,13 +40,8 @@
             </nav>
 
         </div>
-
     </header>
 
-
-    <!-- =========================
-         CONTENIDO
-    ========================== -->
 
     <main>
 
@@ -63,11 +53,17 @@
 
                 <div class="projects-page-header">
 
-                    <a href="index.html#proyectos" class="back-link">
+                    <a
+                        href="index.html#proyectos"
+                        class="back-link"
+                    >
                         ← Volver a proyectos
                     </a>
 
-                    <p class="section-label" id="module-label">
+                    <p
+                        class="section-label"
+                        id="module-label"
+                    >
                         1.º ASIR
                     </p>
 
@@ -82,12 +78,93 @@
                 </div>
 
 
-                <!-- TEMAS -->
+                <!-- SELECTOR DE UNIDADES -->
 
-                <div id="topics-container">
+                <div id="unit-selector">
 
-                    <div class="loading">
-                        Cargando trabajos...
+                    <div class="unit-selector-header">
+                        <p class="section-label">
+                            UNIDADES
+                        </p>
+
+                        <h2>
+                            Selecciona una unidad
+                        </h2>
+
+                        <p>
+                            Elige la unidad que quieres consultar.
+                        </p>
+                    </div>
+
+                    <div
+                        id="unit-list"
+                        class="unit-list"
+                    ></div>
+
+                </div>
+
+
+                <!-- CONTENIDO DE LA UNIDAD -->
+
+                <div
+                    id="unit-content"
+                    class="unit-content hidden"
+                >
+
+                    <!-- NAVEGACIÓN ENTRE UNIDADES -->
+
+                    <div class="unit-navigation">
+
+                        <button
+                            id="previous-unit"
+                            class="unit-nav-button"
+                        >
+                            ← Unidad anterior
+                        </button>
+
+                        <button
+                            id="back-to-units"
+                            class="unit-nav-button center"
+                        >
+                            Todas las unidades
+                        </button>
+
+                        <button
+                            id="next-unit"
+                            class="unit-nav-button"
+                        >
+                            Siguiente unidad →
+                        </button>
+
+                    </div>
+
+
+                    <!-- INFORMACIÓN DE LA UNIDAD -->
+
+                    <div class="selected-unit-header">
+
+                        <p
+                            class="section-label"
+                            id="selected-unit-label"
+                        >
+                            UNIDAD
+                        </p>
+
+                        <h2 id="selected-unit-title">
+                            UD01 - Software base
+                        </h2>
+
+                    </div>
+
+
+                    <!-- TRABAJOS -->
+
+                    <div id="works-container">
+
+                        <div class="loading">
+                            Cargando trabajos...
+                        </div>
+
                     </div>
 
                 </div>
@@ -98,10 +175,6 @@
 
     </main>
 
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
 
     <footer>
 
@@ -115,8 +188,6 @@
 
     </footer>
 
-
-    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
