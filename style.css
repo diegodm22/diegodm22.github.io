@@ -1168,3 +1168,349 @@ footer a:hover {
         padding: 22px;
     }
 }
+
+/* =========================================
+   PÁGINA DE ASIGNATURA
+========================================= */
+
+.projects-page {
+    min-height: 100vh;
+
+    padding: 150px 20px 100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(101, 44, 205, 0.12),
+            transparent 35%
+        ),
+        #070910;
+}
+
+
+/* =========================================
+   CABECERA DE PROYECTOS
+========================================= */
+
+.projects-page-header {
+    margin-bottom: 70px;
+}
+
+.projects-page-header h1 {
+    font-size: clamp(50px, 7vw, 80px);
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 12px;
+}
+
+.projects-page-header p:not(.section-label) {
+    color: var(--text-muted);
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   BOTÓN VOLVER
+========================================= */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 35px;
+
+    color: var(--purple-light);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: white;
+}
+
+
+/* =========================================
+   TEMAS
+========================================= */
+
+.topic-section {
+    margin-bottom: 65px;
+}
+
+.topic-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 18px;
+
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.topic-header h3 {
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+.topic-count {
+    color: var(--purple-light);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   LISTA DE TRABAJOS
+========================================= */
+
+.works-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =========================================
+   TARJETA DE TRABAJO
+========================================= */
+
+.work-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    width: 100%;
+
+    padding: 18px 20px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(55, 31, 110, 0.13),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.work-card:hover {
+    transform: translateX(5px);
+
+    border-color:
+        rgba(139, 79, 255, 0.55);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(80, 40, 160, 0.18),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   ICONO PDF
+========================================= */
+
+.work-icon {
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    color: var(--purple-light);
+
+    background: rgba(124, 60, 255, 0.10);
+
+    border: 1px solid rgba(166, 108, 255, 0.25);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   INFORMACIÓN
+========================================= */
+
+.work-information {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.work-information h4 {
+    margin-bottom: 3px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.work-information p {
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   FLECHA
+========================================= */
+
+.work-arrow {
+    flex-shrink: 0;
+
+    color: var(--purple-light);
+
+    font-size: 21px;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+.work-card:hover .work-arrow {
+    transform: translate(3px, -3px);
+
+    color: white;
+}
+
+
+/* =========================================
+   SIN TRABAJOS
+========================================= */
+
+.empty-topic {
+    padding: 20px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    background: rgba(255, 255, 255, 0.015);
+
+    border: 1px dashed var(--border);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   CARGANDO
+========================================= */
+
+.loading {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE - ASIGNATURA
+========================================= */
+
+@media (max-width: 600px) {
+
+    .projects-page {
+        padding-top: 120px;
+    }
+
+    .projects-page-header {
+        margin-bottom: 50px;
+    }
+
+    .projects-page-header h1 {
+        letter-spacing: -2px;
+    }
+
+    .topic-header h3 {
+        font-size: 20px;
+    }
+
+    .work-card {
+        padding: 15px;
+
+        gap: 12px;
+    }
+
+    .work-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .work-information h4 {
+        font-size: 13px;
+    }
+
+    .work-information p {
+        font-size: 10px;
+    }
+}
