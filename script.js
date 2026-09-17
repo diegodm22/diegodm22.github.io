@@ -137,7 +137,10 @@ async function getFiles(folder) {
 
         const files = await response.json();
 
-        return files.filter(file => file.type === "file");
+        return files.filter(file =>
+            file.type === "file" &&
+            file.name.toLowerCase().endsWith(".pdf")
+        );
 
     } catch (error) {
 
